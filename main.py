@@ -15,35 +15,35 @@ def get_root():
 @app.post('/evaluateDescricao')
 def evaluateDescricao(relacao : Relacao, dep=Depends(verificar_codigo)):
 
-    data = prepareDataDescricao(relacao)    
+    data = prepareDataDescricao(relacao.text)    
     
     return data
 
 @app.post('/evaluateInovacao')
 def evaluateInovacao(relacao : Relacao, dep=Depends(verificar_codigo)):
 
-    data = prepareDataInovacao(relacao)    
+    data = prepareDataInovacao(relacao.text)    
 
     return data
 
 @app.post('/evaluateBarreira')
 def evaluateBarreira(relacao : Relacao, dep=Depends(verificar_codigo)):
 
-    data = prepareDataBarreira(relacao)    
+    data = prepareDataBarreira(relacao.text)    
     
     return data
 
 @app.post('/evaluateMetodologia')
 def evaluateMetodologia(relacao : Relacao, dep=Depends(verificar_codigo)):
 
-    data = prepareDataMetodologia(relacao)    
+    data = prepareDataMetodologia(relacao.text)    
     
     return data
 
 @app.post('/evaluateMetodologia')
 def evaluateComplementar(relacao : Relacao, dep=Depends(verificar_codigo)):
 
-    data = prepareDataComplementar(relacao)    
+    data = prepareDataComplementar(relacao.text)    
     
     return data
 
@@ -56,19 +56,24 @@ def evaluateall(relacao:InputDataStr, dep=Depends(verificar_codigo)):
     metodologia = prepareDataMetodologia(relacao.metodologia)
     complementar = prepareDataComplementar(relacao.complemento)
 
+    try:
+        prob = (int(descricao["avaliacao"]) + int(inovacao["avaliacao"]) + int(barreira["avaliacao"]) + int(metodologia["avaliacao"]) + int(complementar["avaliacao"]))/5
+    except Exception as e:
+        prob = 0
+
     return {
-        "descricao":descricao.feedback,
-        "elemento_tecnologico":inovacao.feedback,
-        "desafio":barreira.feedback,
-        "metodologia":metodologia.feedback,
-        "complementar":complementar.feedback,
-        "probability":"0",
+        "descricao":descricao["feedback"],
+        "elemento_tecnologico":inovacao["feedback"],
+        "desafio":barreira["feedback"],
+        "metodologia":metodologia["feedback"],
+        "complementar":complementar["feedback"],
+        "probability":str(prob*10),
         "class":"1",
         "message":"success"
     }
     
 
-
+#https://mad-srv-ia.fi-group.com:30691/pre-consultopia/predict
 
 @app.get("/metrics")
 def metrics():

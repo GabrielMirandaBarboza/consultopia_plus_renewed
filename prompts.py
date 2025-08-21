@@ -21,17 +21,17 @@ def prepareDataDescricao(relacao):
     Projetos plurianuais: se o projeto tiver duração superior a um ano, apresente a evolução anual das atividades, evitando repetir a mesma descrição em diferentes anos.
     Projetos em cooperação: se o projeto tiver sido desenvolvido em parceria entre empresas, informe no item 'Informações Complementares' a contribuição específica de cada empresa no ano-base, incluindo razão social e CNPJ das participantes. No formulário, declare apenas os valores gastos pela sua empresa.
     
-    Texto da descrição do relatório técnico: {relacao.text}
+    Texto da descrição do relatório técnico: {relacao}
     
-    Forneça um feedback escrito, sobre o que precisa ser melhorado e o que já atende aos critérios. Além disso, retorne uma categoria entre: Não atende, Atende Pouco, Atende Razoavelmente, Atende Totalmente. Conforme os critérios disponibilizados.
+    Forneça um feedback escrito, sobre o que precisa ser melhorado e o que já atende aos critérios. Além disso, retorne uma categoria entre:0 a 10. Conforme os critérios disponibilizados.
     O seu feedback será um guia de ações plausíveis e claras para que o redator saiba de forma muito objetiva o que melhorar e como, esse é o objetivo principal do prompt. Com isso, aponte de forma material do texto, os pontos de melhoria e principalmente, como deve ser melhorado, usando como base o próprio conteúdo do texto.
     
     O feedback deve ser sempre um texto corrido, não use listas ou qualquer outra formatação.
     
     A resposta deve ser um JSON com:
     {{
-    feedback: (o feedback escrito do que precisa ser melhorado)
-    avaliacao: (a categoria se atende)
+        feedback: (o feedback escrito do que precisa ser melhorado)
+        avaliacao: (a categoria se atende de 0 a 10)
     }}
             """)
     
@@ -65,17 +65,17 @@ def prepareDataInovacao(relacao):
     •	ii) Inclua dados quantitativos sempre que possível (por exemplo, porcentagens, métricas de desempenho);
     •	iii) Relacione o projeto com os objetivos da Lei do Bem, destacando seu alinhamento com o avanço tecnológico e a inovação.
     
-    Texto de elemento tecnologicamente novo ou inovador: {relacao.text}
+    Texto de elemento tecnologicamente novo ou inovador: {relacao}
     
-    Forneça um feedback escrito, sobre o que precisa ser melhorado e o que já atende aos critérios. Além disso, retorne uma categoria entre: Não atende, Atende Pouco, Atende Razoavelmente, Atende Totalmente. Conforme os critérios disponibilizados.
+    Forneça um feedback escrito, sobre o que precisa ser melhorado e o que já atende aos critérios. Além disso, retorne uma categoria entre:0 a 10. Conforme os critérios disponibilizados.
     O seu feedback será um guia de ações plausíveis e claras para que o redator saiba de forma muito objetiva o que melhorar e como, esse é o objetivo principal do prompt. Com isso, aponte de forma material do texto, os pontos de melhoria e principalmente, como deve ser melhorado, usando como base o próprio conteúdo do texto.
     
     O feedback deve ser sempre um texto corrido, não use listas ou qualquer outra formatação.
     
     A resposta deve ser um JSON com:
     {{
-    feedback: (o feedback escrito do que precisa ser melhorado)
-    avaliacao: (a categoria se atende)
+        feedback: (o feedback escrito do que precisa ser melhorado)
+        avaliacao: (a categoria se atende de 0 a 10)
     }}
             """)
     
@@ -105,17 +105,17 @@ def prepareDataBarreira(relacao):
     •	iii) Inclua dados quantitativos sempre que possível (por exemplo, porcentagens, métricas de desempenho);
     •	iv) Relacione o projeto com os objetivos da Lei do Bem, destacando seu alinhamento com o avanço tecnológico e a inovação.
     
-    Texto Descrição da barreira ou desafio tecnológico superável: {relacao.text}
+    Texto Descrição da barreira ou desafio tecnológico superável: {relacao}
     
-    Forneça um feedback escrito, sobre o que precisa ser melhorado e o que já atende aos critérios. Além disso, retorne uma categoria entre: Não atende, Atende Pouco, Atende Razoavelmente, Atende Totalmente. Conforme os critérios disponibilizados.
+    Forneça um feedback escrito, sobre o que precisa ser melhorado e o que já atende aos critérios. Além disso, retorne uma categoria entre:0 a 10. Conforme os critérios disponibilizados.
     O seu feedback será um guia de ações plausíveis e claras para que o redator saiba de forma muito objetiva o que melhorar e como, esse é o objetivo principal do prompt. Com isso, aponte de forma material do texto, os pontos de melhoria e principalmente, como deve ser melhorado, usando como base o próprio conteúdo do texto.
     
     O feedback deve ser sempre um texto corrido, não use listas ou qualquer outra formatação.
     
     A resposta deve ser um JSON com:
     {{
-    feedback: (o feedback escrito do que precisa ser melhorado)
-    avaliacao: (a categoria se atende)
+        feedback: (o feedback escrito do que precisa ser melhorado)
+        avaliacao: (a categoria se atende de 0 a 10)
     }}
             """)
     
@@ -145,8 +145,8 @@ def prepareDataMetodologia(relacao):
     •	v) Relacione a descrição com os objetivos da Lei do Bem, destacando a inovação e o avanço tecnológico.
 
 
-    Texto da metodologia e métodos utilizados no desenvolvimento do projeto:{relacao.text}
-    Forneça um feedback escrito, sobre o que precisa ser melhorado e o que já atende aos critérios. Além disso, retorne uma categoria entre: Não atende, Atende Pouco, Atende Razoavelmente, Atende Totalmente. Conforme os critérios disponibilizados.
+    Texto da metodologia e métodos utilizados no desenvolvimento do projeto:{relacao}
+    Forneça um feedback escrito, sobre o que precisa ser melhorado e o que já atende aos critérios. Além disso, retorne uma categoria entre:0 a 10. Conforme os critérios disponibilizados.
     O seu feedback será um guia de ações plausíveis e claras para que o redator saiba de forma muito objetiva o que melhorar e como, esse é o objetivo principal do prompt. Com isso, aponte de forma material do texto, os pontos de melhoria e principalmente, como deve ser melhorado, usando como base o próprio conteúdo do texto.
     
     O feedback deve ser sempre um texto corrido, não use listas ou qualquer outra formatação.
@@ -154,7 +154,7 @@ def prepareDataMetodologia(relacao):
     A resposta deve ser um JSON com:
     {{
         feedback: (o feedback escrito do que precisa ser melhorado)
-        avaliacao: (a categoria se atende)
+        avaliacao: (a categoria se atende de 0 a 10)
     }}
             """)
     
@@ -182,8 +182,8 @@ def prepareDataComplementar(relacao):
     •	v) Relacione a descrição com os objetivos da Lei do Bem, destacando a inovação e o avanço tecnológico.
 
 
-    Texto complementar e métodos utilizados no desenvolvimento do projeto:{relacao.text}
-    Forneça um feedback escrito, sobre o que precisa ser melhorado e o que já atende aos critérios. Além disso, retorne uma categoria entre: Não atende, Atende Pouco, Atende Razoavelmente, Atende Totalmente. Conforme os critérios disponibilizados.
+    Texto complementar e métodos utilizados no desenvolvimento do projeto:{relacao}
+    Forneça um feedback escrito, sobre o que precisa ser melhorado e o que já atende aos critérios. Além disso, retorne uma categoria entre:0 a 10. Conforme os critérios disponibilizados.
     O seu feedback será um guia de ações plausíveis e claras para que o redator saiba de forma muito objetiva o que melhorar e como, esse é o objetivo principal do prompt. Com isso, aponte de forma material do texto, os pontos de melhoria e principalmente, como deve ser melhorado, usando como base o próprio conteúdo do texto.
     
     O feedback deve ser sempre um texto corrido, não use listas ou qualquer outra formatação.
@@ -191,7 +191,7 @@ def prepareDataComplementar(relacao):
     A resposta deve ser um JSON com:
     {{
         feedback: (o feedback escrito do que precisa ser melhorado)
-        avaliacao: (a categoria se atende)
+        avaliacao: (a categoria se atende de 0 a 10)
     }}
             """)
     
