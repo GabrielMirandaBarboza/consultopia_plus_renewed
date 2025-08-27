@@ -62,11 +62,11 @@ def evaluateall(relacao:InputDataStr, dep=Depends(verificar_codigo)):
         prob = 0
 
     return {
-        "descricao":descricao["feedback"],
-        "elemento_tecnologico":inovacao["feedback"],
-        "desafio":barreira["feedback"],
-        "metodologia":metodologia["feedback"],
-        "complementar":complementar["feedback"],
+        "descricao":f"{descricao['feedback']} - Avaliação de atendimento do campo aos critérios MCTI: {descricao['avaliacao']}",
+        "elemento_tecnologico":f"{inovacao['feedback']} - Avaliação de atendimento do campo aos critérios MCTI: {inovacao['avaliacao']}",
+        "desafio":f"{barreira['feedback']} - Avaliação de atendimento do campo aos critérios MCTI: {barreira['avaliacao']}",
+        "metodologia":f"{metodologia['feedback']} - Avaliação de atendimento do campo aos critérios MCTI: {metodologia['avaliacao']}",
+        "complementar":f"{complementar['feedback']} - Avaliação de atendimento do campo aos critérios MCTI: {complementar['avaliacao']}",
         "probability":str(prob*10),
         "class":"1",
         "message":"success"
